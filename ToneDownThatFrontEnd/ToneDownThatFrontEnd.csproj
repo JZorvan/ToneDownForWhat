@@ -876,6 +876,7 @@
     <Content Include="Content\bootstrap-flex.min.css.map" />
     <Content Include="Content\bootstrap-flex.css.map" />
     <Content Include="Content\Styles\bundle.scss" />
+    <Content Include="Content\Styles\Content.scss" />
     <None Include="Scripts\jquery-3.0.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />

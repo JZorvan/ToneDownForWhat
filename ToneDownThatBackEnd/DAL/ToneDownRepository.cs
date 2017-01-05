@@ -49,7 +49,42 @@ namespace ToneDownThatBackEnd.DAL
         {
             Context.Dispose();
             _userManager.Dispose();
+        }
 
+        // Start Repo Methods for Users and Entries
+
+            // Get all the Entries for a User, these can be filtered later
+        public List<Entry> GetAllEntriesByUser (string username)
+        {
+            User user = Context.Users.SingleOrDefault(u => u.UserName == username);
+            return user.Entries;
+        }
+
+            // Add an Entry to a User
+        public void AddEntryToUser (string username, Entry new_entry)
+        {
+            Context.Users.SingleOrDefault(u => u.UserName == username).Entries.Add(new_entry);
+            Context.SaveChanges();
+        }
+
+            // Retrieve a Selected Entry by the ID (I may not need this, unless I add a detail or edit feature)
+        public Entry GetEntryById (int id)
+        {
+            return Context.Entries.SingleOrDefault(e => e.EntryId == id);
+        }
+
+            // Delete a Single Selected Entry
+        public void RemoveEntryById(string username, int id)
+        {
+            User user = Context.Users.FirstOrDefault(u => u.UserName == username);
+            Entry targetedEntry = Context.Entries.FirstOrDefault(p => p.EntryId == id);
+
+            if (targetedEntry != null)
+            {
+                user.Entries.Remove(targetedEntry);
+                Context.Entries.Remove(targetedEntry);
+                Context.SaveChanges();
+            }
         }
     }
 }

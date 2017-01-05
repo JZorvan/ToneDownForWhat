@@ -1,4 +1,20 @@
 ﻿<div data-ng-controller="toneApiCtrl">
-    <textarea data-ng-model="userInput"></textarea>
-    <button data-ng-click="analyzeTone()">Dick</button>
+
+    <form>
+        <div class="form-group has-danger">
+            <label for="entryArea" class="form-control-label">Enter or paste some text you want to analyze:</label>
+            <textarea data-ng-model="userInput" class="form-control form-control-danger" id="entryArea" rows="3"></textarea>
+            <div class="form-control-feedback">Please give us some text to use.</div>
+        </div>
+        <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary">Analyze it!</button>
+    </form>
+
+    <div>
+        <p>{{analysis.document_tone.tone_categories.0.tones.0}}</p>
+        <p>{{analysis.document_tone.tone_categories.0.tones.1}}</p>
+        <p>{{analysis.document_tone.tone_categories.0.tones.2}}</p>
+        <p>{{analysis.document_tone.tone_categories.0.tones.3}}</p>
+        <p>{{analysis.document_tone.tone_categories.0.tones.4}}</p>
+    </div>
+
 </div>
