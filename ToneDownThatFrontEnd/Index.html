@@ -7,9 +7,22 @@
     <base href="/" />
 </head>
 <body>
-    <div data-ng-view=""></div>
 
-    
+    <!-- Nav Bar -->
+    <nav data-ng-controller="indexController" role="navigation" class="navbar  navbar-light" style="background-color: #F7D40A;">
+        <ul class="nav navbar-nav float-xs-right">
+            <li data-ng-hide="authentication.isAuth" class="nav-item">
+                <a class="nav-link" href="/signin">Sign In</a>
+            </li>
+            <li data-ng-hide="authentication.isAuth" class="nav-item">
+                <a class="nav-link" href="/register">Register</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div data-ng-view=""></div>
+    </div>
 
     <!-- Angrylar -->
     <script src="Scripts/angular.js"></script>

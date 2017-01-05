@@ -23,25 +23,16 @@ app.run(['authService', function (authService) {
 app.controller('toneApiCtrl', function ($scope, $http) {
 
     $scope.userInput = "";
-    $scope.analysis = [];
+    //$scope.analysis = [];
 
     $scope.analyzeTone = function () {
-
-        var req = {
-            method: "POST",
-            headers: {
-                "Content-Type": "text/plain",
-                "Authorization": "Basic ZDhmNmRlODYtMGIwZi00MzE1LTg5YTItOTk3OWYyYTMxZmVhOjI1dHFlTEpOVko4Qg=="
-            },
-            url: "https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19&sentences=false"
-        }
         
-        var dataVar = $scope.userInput;
+        var userRequest = $scope.userInput;
 
         $http({
             url: "http://cors-anywhere.herokuapp.com/https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2016-05-19&sentences=false",
             method: "POST",
-            data: dataVar,
+            data: userRequest,
             headers: {
                 "Content-Type": "text/plain",
                 "authorization": "Basic ZDhmNmRlODYtMGIwZi00MzE1LTg5YTItOTk3OWYyYTMxZmVhOjI1dHFlTEpOVko4Qg=="
