@@ -5,7 +5,11 @@
             <label for="entryArea">Enter or paste some text you want to analyze:</label>
             <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
         </div>
-        <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary">Analyze it!</button>
+        <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary center">Analyze it!</button>
     </form>
+
+    <div>
+        <p>{{analysis.document_tone.tone_categories[0].tones[0]}}</p>
+    </div>
 
 </div>
