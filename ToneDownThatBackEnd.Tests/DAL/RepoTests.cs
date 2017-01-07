@@ -68,7 +68,8 @@ namespace ToneDownThatBackEnd.Tests.DAL
             Entry mockEntry1 = new Entry
             {
                 EntryId = 0,
-                EntryName = "Rick Roll",
+                EntryAuthor = "Rick Astley",
+                EntryName = "Never Gonna Give You Up",
                 EntryDate = DateTime.Now,
                 Format = "Document",
                 Context = "Social",
@@ -90,11 +91,12 @@ namespace ToneDownThatBackEnd.Tests.DAL
             Entry mockEntry2 = new Entry
             {
                 EntryId = 1,
+                EntryAuthor = "Janelle Zorvan",
                 EntryName = "Janelle's LinkedIn Summary",
                 EntryDate = DateTime.Now,
-                Format = "Post",
+                Format = "Social Post",
                 Context = "Professional",
-                Content = "Laptops and Back Again: A Developer's Tale. I always knew I was destined to go places, which is theoretically great, but doesn't really help much until you develop a good sense of direction. I started out wanting to pursue a future in higher education; I wanted to fill in "Dr" on forms, read, write, teach, and get a whip and fedora.Thankfully, a couple scholarships gave me the opportunity to discover the difference between an 'interest' and 'passion' and 'hobby' and 'career'. During the time I was researching career paths, I had friends and connections in technology who got to know my skill set and mentality tell me on a regular basis that I should consider going into programming / development.After some consideration, I started playing with resources online to learn programming languages and discovered that it was so very interesting and FUN to me in a way nothing I had yet tried had been.It really kept me hungry and wanting to learn more, playing into my love of problem solving and creative solutions.I then spoke with recruiters and developers in my network to find out how to get started and found a bootcamp that I could attend while still working full time.I challenged myself and could not be happier with what I found:  that career I'm passionate about. Now, I'm wrapping that up and ready for my next step - my first position in software development and I've never been more excited.",
+                Content = "Laptops and Back Again: A Developer's Tale. I always knew I was destined to go places, which is theoretically great, but doesn't really help much until you develop a good sense of direction. I started out wanting to pursue a future in higher education; I wanted to fill in Dr on forms, read, write, teach, and get a whip and fedora.Thankfully, a couple scholarships gave me the opportunity to discover the difference between an 'interest' and 'passion' and 'hobby' and 'career'. During the time I was researching career paths, I had friends and connections in technology who got to know my skill set and mentality tell me on a regular basis that I should consider going into programming / development.After some consideration, I started playing with resources online to learn programming languages and discovered that it was so very interesting and FUN to me in a way nothing I had yet tried had been.It really kept me hungry and wanting to learn more, playing into my love of problem solving and creative solutions.I then spoke with recruiters and developers in my network to find out how to get started and found a bootcamp that I could attend while still working full time.I challenged myself and could not be happier with what I found:  that career I'm passionate about. Now, I'm wrapping that up and ready for my next step - my first position in software development and I've never been more excited.",
 
                 Anger = 0.124774,
                 Disgust = 0.002098,
@@ -111,14 +113,97 @@ namespace ToneDownThatBackEnd.Tests.DAL
 
             // Creates a User to test:
             User mockUser = new User { Id = "0", UserName = "ZeroCool", Entries = new List<Entry> { mockEntry1, mockEntry2 } };
+
+            Users.Add(mockUser);
+            Entries.Add(mockEntry1);
+            Entries.Add(mockEntry2);
+            
+
         }
 
         [TestMethod]
         public void CanInstantiateRepo()
         {
-            ToneDownRepository repo = new ToneDownRepository();
             Assert.IsNotNull(repo);
         }
 
+        [TestMethod]
+        public void TestMockData()
+        {
+            ImportMockData();
+
+            int expected_users = 1;
+            int actual_users = Users.Count();
+            int expected_entries = 2;
+            int actual_entries = Entries.Count;
+
+            Assert.AreEqual(expected_entries, actual_entries);
+            Assert.AreEqual(expected_users, actual_users);
+        }
+
+        [TestMethod]
+        public void CanGetEntriesForUser()
+        {
+            ImportMockData();
+
+            List<Entry> actual_entries = repo.GetAllEntriesByUser("ZeroCool");
+
+            Assert.IsTrue(actual_entries.Count == 2);
+        }
+
+        [TestMethod]
+        public void CanGetEntryById()
+        {
+            ImportMockData();
+
+            Entry entry = repo.GetEntryById(1);
+
+            Assert.IsTrue(entry.EntryName == "Janelle's LinkedIn Summary");
+        }
+
+        [TestMethod]
+        public void CanAddAnEntryToUser()
+        {
+            ImportMockData();
+
+            Entry entry_to_add = new Entry
+            {
+                EntryId = 2,
+                EntryAuthor = "Donald Trump",
+                EntryName = "Trump's New Year's Tweet",
+                EntryDate = DateTime.Now,
+                Format = "Social Post",
+                Context = "Social",
+                Content = "Happy New Year to all, including to my many enemies and those who have fought me and lost so badly they just don't know what to do. Love!",
+
+                Anger = 0.136919,
+                Disgust = 0.020634,
+                Fear = 0.057937,
+                Joy = 0.601538,
+                Sadness = 0.163572,
+
+                Openness = 0.02594,
+                Conscientiousness = 0.839064,
+                Extraversion = 0.525272,
+                Agreeableness = 0.937548,
+                EmotionalRange = 0.328904
+            };
+
+            repo.AddEntryToUser("ZeroCool", entry_to_add);
+            List<Entry> actual_entries = repo.GetAllEntriesByUser("ZeroCool");
+
+            Assert.IsTrue(actual_entries.Count == 3);
+        }
+
+        [TestMethod]
+        public void CanDeleteAnEntry()
+        {
+            ImportMockData();
+
+            repo.RemoveEntryById("ZeroCool", 1);
+            List<Entry> actual_entries = repo.GetAllEntriesByUser("ZeroCool");
+
+            Assert.IsTrue(actual_entries.Count == 1);
+        }
     }
 }
