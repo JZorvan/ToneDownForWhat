@@ -16,19 +16,20 @@ namespace ToneDownThatBackEnd.Models
         public DateTime EntryDate { get; set; }     /* Time Entry was written */
         public string Format { get; set; }          /* Format: Email, Social Post, Direct Message, or Document */
         public string Context { get; set; }         /* Context: Professional or Social */
+        public string Content { get; set; }         /* The Text that the user enters
          
         /* Emotional Tones */
-        public int Anger { get; set; }
-        public int Disgust { get; set; }
-        public int Fear { get; set; }
-        public int Joy { get; set; }
-        public int Sadness { get; set; }
+        public double Anger { get; set; }
+        public double Disgust { get; set; }
+        public double Fear { get; set; }
+        public double Joy { get; set; }
+        public double Sadness { get; set; }
 
         /* Social Tones */
-        public int Openness { get; set; }
-        public int Conscientiousness { get; set; }
-        public int Extraversion { get; set; }
-        public int Agreeableness { get; set; }
-        public int EmotionalRange { get; set; }
+        public double Openness { get; set; }
+        public double Conscientiousness { get; set; }
+        public double Extraversion { get; set; }
+        public double Agreeableness { get; set; }
+        public double EmotionalRange { get; set; }
     }
 }

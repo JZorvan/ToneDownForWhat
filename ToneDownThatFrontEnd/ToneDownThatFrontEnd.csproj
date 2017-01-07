@@ -99,6 +99,7 @@
     <Content Include="App\Partials\Nav.html" />
     <Content Include="App\Services\authInterceptorService.js" />
     <Content Include="App\Services\authService.js" />
+    <Content Include="App\Services\EntryService.js" />
     <Content Include="Content\bootstrap-flex.css" />
     <Content Include="Content\bootstrap-flex.min.css" />
     <Content Include="Content\bootstrap-grid.css" />

@@ -64,7 +64,53 @@ namespace ToneDownThatBackEnd.Tests.DAL
 
         public void ImportMockData()
         {
-            
+            // Assigns Entries to this User
+            Entry mockEntry1 = new Entry
+            {
+                EntryId = 0,
+                EntryName = "Rick Roll",
+                EntryDate = DateTime.Now,
+                Format = "Document",
+                Context = "Social",
+                Content = "We're no strangers to love. You know the rules and so do I. A full commitment's what I'm thinking of. You wouldn't get this from any other guy. I just want to tell you how I'm feeling. Gotta make you understand. Never gonna give you up, never gonna let you down. Never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye. Never gonna tell a lie and hurt you. We've known each other for so long. Your heart's been aching but you're too shy to say it. Inside we both know what's been going on. We know the game and we're gonna play it. And if you ask me how I'm feeling. Don't tell me you're too blind to see. Never gonna give you up, never gonna let you down. Never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye. Never gonna tell a lie and hurt you. Never gonna give you up, never gonna let you down. Never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye. Never gonna tell a lie and hurt you. We've known each other for so long. Your heart's been aching but you're too shy to say it. Inside we both know what's been going on. We know the game and we're gonna play it. I just want to tell you how I'm feeling. Gotta make you understand. Never gonna give you up, never gonna let you down. Never gonna run around and desert you. Never gonna make you cry, never gonna say goodbye. Never gonna tell a lie and hurt you.",
+
+                Anger = 0.146219,
+                Disgust = 0.077742,
+                Fear = 0.18059,
+                Joy = 0.229088,
+                Sadness = 0.534531,
+
+                Openness = 0.013117,
+                Conscientiousness = 0.686302,
+                Extraversion = 0.130908,
+                Agreeableness = 0.839812,
+                EmotionalRange = 0.194754
+            };
+
+            Entry mockEntry2 = new Entry
+            {
+                EntryId = 1,
+                EntryName = "Janelle's LinkedIn Summary",
+                EntryDate = DateTime.Now,
+                Format = "Post",
+                Context = "Professional",
+                Content = "Laptops and Back Again: A Developer's Tale. I always knew I was destined to go places, which is theoretically great, but doesn't really help much until you develop a good sense of direction. I started out wanting to pursue a future in higher education; I wanted to fill in "Dr" on forms, read, write, teach, and get a whip and fedora.Thankfully, a couple scholarships gave me the opportunity to discover the difference between an 'interest' and 'passion' and 'hobby' and 'career'. During the time I was researching career paths, I had friends and connections in technology who got to know my skill set and mentality tell me on a regular basis that I should consider going into programming / development.After some consideration, I started playing with resources online to learn programming languages and discovered that it was so very interesting and FUN to me in a way nothing I had yet tried had been.It really kept me hungry and wanting to learn more, playing into my love of problem solving and creative solutions.I then spoke with recruiters and developers in my network to find out how to get started and found a bootcamp that I could attend while still working full time.I challenged myself and could not be happier with what I found:  that career I'm passionate about. Now, I'm wrapping that up and ready for my next step - my first position in software development and I've never been more excited.",
+
+                Anger = 0.124774,
+                Disgust = 0.002098,
+                Fear = 0.058569,
+                Joy = 0.747186,
+                Sadness = 0.098886,
+
+                Openness = 0.597728,
+                Conscientiousness = 0.063195,
+                Extraversion = 0.250625,
+                Agreeableness = 0.504802,
+                EmotionalRange = 0.10008
+            };
+
+            // Creates a User to test:
+            User mockUser = new User { Id = "0", UserName = "ZeroCool", Entries = new List<Entry> { mockEntry1, mockEntry2 } };
         }
 
         [TestMethod]
