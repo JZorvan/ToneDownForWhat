@@ -114,6 +114,7 @@ namespace ToneDownThatBackEnd.Tests.DAL
             // Creates a User to test:
             User mockUser = new User { Id = "0", UserName = "ZeroCool", Entries = new List<Entry> { mockEntry1, mockEntry2 } };
 
+            // Add User and Entries to MockData
             Users.Add(mockUser);
             Entries.Add(mockEntry1);
             Entries.Add(mockEntry2);
