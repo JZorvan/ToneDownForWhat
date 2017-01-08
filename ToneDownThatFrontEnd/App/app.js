@@ -7,6 +7,15 @@ app.config(function ($routeProvider, $locationProvider) {
     $routeProvider.when("/", {
         controller: "homeController",
         templateUrl: "App/Partials/home.html"
+    }).when("/register", {
+        controller: "registerController",
+        templateUrl: "/app/Partials/Register.html"
+    }).when("/signin", {
+        controller: "loginController",
+        templateUrl: "/app/Partials/Signin.html"
+    }).when("/logout", {
+        controller: ,
+        templateUrl:
     }).otherwise({ redirectTo: "/" });
 
     $locationProvider.html5Mode(true);
