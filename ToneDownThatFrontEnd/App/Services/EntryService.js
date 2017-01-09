@@ -3,7 +3,6 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
 
     var serviceBase = 'http://localhost:51278/';
     var entryServiceFactory = {};
-    var authData = localStorageService.get('authorizationData');
 
     var _getEntries = function () {
 
@@ -25,23 +24,60 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
     };
 
     var _getSingleEntry = function (id) {
-        return $http.get(serviceBase + 'api/entry/' + id).then(function (results) {
-            return results;
+
+        return $http({
+            method: 'GET',
+            url: serviceBase + 'api/entry/' + id,
+            headers: {
+                "authorization": 'Bearer' + $rootScope.userToken
+            }
+        }).then(function successCallback(response) {
+            return response;
         });
+
+        //return $http.get(serviceBase + 'api/entry/' + id).then(function (results) {
+        //    return results;
+        //});
     };
 
     var _addNewEntry = function (entry) {
+
         var data = entry;
 
-        $http.post(serviceBase + 'api/entry', data).then(function (results) {
-            console.log(results);
+        // new
+        return $http({
+            method: 'POST',
+            url: serviceBase + 'api/entry', data,
+            headers: {
+                "authorization": 'Bearer' + $rootScope.userToken
+            }
+        }).then(function successCallback(response) {
+            return response;
         });
+
+        // old
+        //$http.post(serviceBase + 'api/entry', data).then(function (results) {
+        //    console.log(results);
+        //});
     };
 
     var _removeSingleEntry = function (id) {
-        return $http.delete(serviceBase + 'api/entry/' + id).then(function (results) {
-            return results;
+
+        //new
+        return $http({
+            method: 'DELETE',
+            url: serviceBase + 'api/entry/' + id,
+            headers: {
+                "authorization": 'Bearer' + $rootScope.userToken
+            }
+        }).then(function successCallback(response) {
+            return response;
         });
+
+        // old
+        //return $http.delete(serviceBase + 'api/entry/' + id).then(function (results) {
+        //    return results;
+        //});
     };
 
     entryServiceFactory.getEntries = _getEntries;
