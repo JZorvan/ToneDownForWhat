@@ -1,15 +1,16 @@
 ﻿<div data-ng-controller="toneApiCtrl">
-    <div class="container">
+
+    <div class="jumbotron">
         <form>
             <div class="form-group">
                 <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
                 <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
             </div>
-            <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
+            <p><a class="btn btn-primary btn-lg" data-ng-click="analyzeTone()" role="button">Analysis this!</a></p>
         </form>
     </div>
 
-    <div class="container">
+    <!--<div class="container">
         <form>
             <div class="form-group">
                 <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
@@ -17,12 +18,53 @@
             </div>
             <button data-ng-click="getUserEntries()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
         </form>
-    </div>
+    </div>-->
 
+    <div ng-hide="!showBool">
     <div class="container">
+        <h4>Anger:</h4>
         <div class="progress">
-            <div class="progress-bar" role="progressbar" style="width: {{anger}}%" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{anger}}%" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100">{{anger}}%</div>
+        </div>
+        <h4>Disgust:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{disgust}}%" aria-valuenow="{{disgust}}" aria-valuemin="0" aria-valuemax="100">{{disgust}}%</div>
+        </div>
+        <h4>Fear:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{fear}}%" aria-valuenow="{{fear}}" aria-valuemin="0" aria-valuemax="100">{{fear}}%</div>
+        </div>
+        <h4>Joy:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{joy}}%" aria-valuenow="{{joy}}" aria-valuemin="0" aria-valuemax="100">{{joy}}%</div>
+        </div>
+        <h4>Sadness:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{sadness}}%" aria-valuenow="{{sadness}}" aria-valuemin="0" aria-valuemax="100">{{sadness}}%</div>
         </div>
     </div>
 
+    <div class="container">
+        <h4>Openness:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{openness}}%" aria-valuenow="{{openness}}" aria-valuemin="0" aria-valuemax="100">{{openness}}%</div>
+        </div>
+        <h4>Conscientiousness:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{conscientiousness}}%" aria-valuenow="{{conscientiousness}}" aria-valuemin="0" aria-valuemax="100">{{conscientiousness}}%</div>
+        </div>
+        <h4>Extraversion:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{extraversion}}%" aria-valuenow="{{extraversion}}" aria-valuemin="0" aria-valuemax="100">{{extraversion}}%</div>
+        </div>
+        <h4>Agreeableness:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{agreeableness}}%" aria-valuenow="{{agreeableness}}" aria-valuemin="0" aria-valuemax="100">{{agreeableness}}%</div>
+        </div>
+        <h4>Emotional Range:</h4>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em; width: {{emotionalrange}}%" aria-valuenow="{{emotionalrange}}" aria-valuemin="0" aria-valuemax="100">{{emotionalrange}}%</div>
+        </div>
+    </div>
+    </div>
 </div>

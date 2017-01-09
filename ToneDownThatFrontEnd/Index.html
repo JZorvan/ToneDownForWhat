@@ -3,21 +3,34 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <link href="Content/Styles/bundle.scss" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    
     <base href="/" />
 </head>
 <body>
 
-    <!-- Nav Bar -->
-    <nav data-ng-controller="indexController" role="navigation" class="navbar  navbar-light" style="background-color: #F7D40A;">
-        <ul class="nav navbar-nav float-xs-right">
-            <li data-ng-hide="authentication.isAuth" class="nav-item">
-                <a class="nav-link" href="/signin">Sign In</a>
-            </li>
-            <li data-ng-hide="authentication.isAuth" class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
-            </li>
-        </ul>
+    <!-- New Nav Bar -->
+
+    <nav class="navbar navbar-default" id="nav_style"data-ng-controller="indexController" role="navigation" style="background-color">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li data-ng-hide="authentication.isAuth" class="nav-item">
+                        <a class="nav-link" href="/signin">Sign In</a>
+                    </li>
+                    <li data-ng-hide="authentication.isAuth" class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li data-ng-show="authentication.isAuth" class="nav-item">
+                        <a class="nav-link" data-ng-click="logOut()" href="/">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <div class="content">
