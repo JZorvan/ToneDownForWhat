@@ -1,1 +1,9 @@
-﻿<h3>This is the register page.</h3>
+﻿<div class="container">
+    <h2 class="text-center">Create an account to start analyzing your tone.</h2>
+    <form>
+        <input type="text" class="form-control" placeholder="Username" data-ng-model="registration.userName" required autofocus>
+        <input type="password" class="form-control" placeholder="Password" data-ng-model="registration.password" required>
+        <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="registration.confirmPassword" required>
+        <button type="submit" class="btn btn-primary text-center" data-ng-click="signUp()">Submit</button>
+    </form>
+</div>

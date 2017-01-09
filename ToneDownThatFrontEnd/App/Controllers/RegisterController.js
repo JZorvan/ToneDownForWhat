@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-app.controller('registerController', ['$scope', '$location', '$timeout', 'authService', function ($scope, $location, $timeout, authService) {
+app.controller('signupController', ['$scope', '$location', '$timeout', 'authService', function ($scope, $location, $timeout, authService) {
 
     $scope.savedSuccessfully = false;
     $scope.message = "";
@@ -34,7 +34,7 @@ app.controller('registerController', ['$scope', '$location', '$timeout', 'authSe
     var startTimer = function () {
         var timer = $timeout(function () {
             $timeout.cancel(timer);
-            $location.path('/login');
+            $location.path('/signin');
         }, 1500);
     };
 

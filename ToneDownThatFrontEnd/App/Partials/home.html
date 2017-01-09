@@ -1,15 +1,28 @@
 ﻿<div data-ng-controller="toneApiCtrl">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
+                <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
+            </div>
+            <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
+        </form>
+    </div>
 
-    <form>
-        <div class="form-group">
-            <label for="entryArea">Enter or paste some text you want to analyze:</label>
-            <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
+                <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
+            </div>
+            <button data-ng-click="getUserEntries()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: {{anger}}%" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary center">Analyze it!</button>
-    </form>
-
-    <div>
-        <p>{{data.document_tone.tone_categories[0].tones[0]}}</p>
     </div>
 
 </div>
