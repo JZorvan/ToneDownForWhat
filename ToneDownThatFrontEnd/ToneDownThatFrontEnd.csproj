@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Partials\Register.html" />
+    <Content Include="App\Partials\Signin.html" />
     <Content Include="packages.config" />
     <Content Include="Scripts\version.json" />
     <Content Include="Scripts\errors.json" />
@@ -95,10 +97,11 @@
     <Content Include="App\Controllers\HomeController.js" />
     <Content Include="App\Controllers\LoginController.js" />
     <Content Include="App\Controllers\RegisterController.js" />
-    <Content Include="App\Partials\home.html" />
+    <Content Include="App\Partials\Home.html" />
     <Content Include="App\Partials\Nav.html" />
     <Content Include="App\Services\authInterceptorService.js" />
     <Content Include="App\Services\authService.js" />
+    <Content Include="App\Services\EntryService.js" />
     <Content Include="Content\bootstrap-flex.css" />
     <Content Include="Content\bootstrap-flex.min.css" />
     <Content Include="Content\bootstrap-grid.css" />

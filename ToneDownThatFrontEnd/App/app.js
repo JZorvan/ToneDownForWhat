@@ -6,24 +6,37 @@ app.config(function ($routeProvider, $locationProvider) {
 
     $routeProvider.when("/", {
         controller: "homeController",
-        templateUrl: "App/Partials/home.html"
+        templateUrl: "/App/Partials/Home.html"
+    }).when("/register", {
+        controller: "signupController",
+        templateUrl: "/App/Partials/Register.html"
+    }).when("/signin", {
+        controller: "loginController",
+        templateUrl: "/App/Partials/Signin.html"
     }).otherwise({ redirectTo: "/" });
 
     $locationProvider.html5Mode(true);
 });
 
-app.config(function ($httpProvider) {
-    $httpProvider.interceptors.push('authInterceptorService');
-});
+//app.config(function ($httpProvider) {
+ //   $httpProvider.interceptors.push('authInterceptorService');
+//});
 
 app.run(['authService', function (authService) {
     authService.fillAuthData();
 }]);
 
-app.controller('toneApiCtrl', function ($scope, $http) {
+app.controller('toneApiCtrl', function ($scope, $http, entryService) {
 
     $scope.userInput = "";
-    //$scope.analysis = [];
+
+    $scope.userEntries = {};
+
+    $scope.getUserEntries = function () {
+        entryService.getEntries().then(function (response) {
+            console.log(response);
+        });
+    };
 
     $scope.analyzeTone = function () {
         
@@ -39,9 +52,18 @@ app.controller('toneApiCtrl', function ($scope, $http) {
             }
         })
                    .then(function (response) {
-                       console.log($scope.userInput)
-                       $scope.analysis = response;
-                       console.log($scope.analysis);
+                       $scope.analysis = response.data;
+                       $scope.anger = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[0].score) * 100);
+                       $scope.disgust = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[1].score) * 100);
+                       $scope.fear = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[2].score) * 100);
+                       $scope.joy = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[3].score) * 100);
+                       $scope.sadness = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[4].score) * 100);
+                       $scope.openness = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[0].score) * 100);
+                       $scope.conscientiousness = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[1].score) * 100);
+                       $scope.extraversion = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[2].score) * 100);
+                       $scope.agreeableness = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[3].score) * 100);
+                       $scope.emotionalrange = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[4].score) * 100);
+                       console.log($scope.joy);
                    }
                    , function (error) {
                        console.log("Call failed!");

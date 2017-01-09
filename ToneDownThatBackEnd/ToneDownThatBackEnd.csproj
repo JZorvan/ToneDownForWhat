@@ -215,8 +215,13 @@
     <Compile Include="Migrations\201701021920165_EntryModel.Designer.cs">
       <DependentUpon>201701021920165_EntryModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701082256031_ContentEntryUpdate.cs" />
+    <Compile Include="Migrations\201701082256031_ContentEntryUpdate.Designer.cs">
+      <DependentUpon>201701082256031_ContentEntryUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entry.cs" />
+    <Compile Include="Models\ToneDownViewModels.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -250,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701021920165_EntryModel.resx">
       <DependentUpon>201701021920165_EntryModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701082256031_ContentEntryUpdate.resx">
+      <DependentUpon>201701082256031_ContentEntryUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

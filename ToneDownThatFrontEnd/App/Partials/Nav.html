@@ -2,8 +2,9 @@
 
     <nav class="navbar navbar-light style="background-color: #FFF;"">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link" href="#">Sign In</a>
-            <a class="nav-item nav-link" href="#">Register</a>
+            <a class="nav-item nav-link" href="#/signin" data-ng-hide="authentication.isAuth">Sign In</a>
+            <a class="nav-item nav-link" href="#/register" data-ng-hide="authentication.isAuth">Register</a>
+            <a class="nav-item nav-link" href="#" data-ng-click="logOut()">Sign Out</a>
         </div>
     </nav>
 

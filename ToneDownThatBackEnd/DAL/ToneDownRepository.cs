@@ -60,17 +60,17 @@ namespace ToneDownThatBackEnd.DAL
             return user.Entries;
         }
 
-            // Add an Entry to a User
+        // Retrieve a Selected Entry by the ID
+        public Entry GetEntryById(int id)
+        {
+            return Context.Entries.SingleOrDefault(e => e.EntryId == id);
+        }
+
+        // Add an Entry to a User
         public void AddEntryToUser (string username, Entry new_entry)
         {
             Context.Users.SingleOrDefault(u => u.UserName == username).Entries.Add(new_entry);
             Context.SaveChanges();
-        }
-
-            // Retrieve a Selected Entry by the ID (I may not need this, unless I add a detail or edit feature)
-        public Entry GetEntryById (int id)
-        {
-            return Context.Entries.SingleOrDefault(e => e.EntryId == id);
         }
 
             // Delete a Single Selected Entry

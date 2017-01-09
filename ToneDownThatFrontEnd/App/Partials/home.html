@@ -1,20 +1,28 @@
 ﻿<div data-ng-controller="toneApiCtrl">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
+                <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
+            </div>
+            <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
+        </form>
+    </div>
 
-    <form>
-        <div class="form-group has-danger">
-            <label for="entryArea" class="form-control-label">Enter or paste some text you want to analyze:</label>
-            <textarea data-ng-model="userInput" class="form-control form-control-danger" id="entryArea" rows="3"></textarea>
-            <div class="form-control-feedback">Please give us some text to use.</div>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="entryArea" class="text-center">Enter or paste some text you want to analyze:</label>
+                <textarea data-ng-model="userInput" class="form-control" id="entryArea" rows="3"></textarea>
+            </div>
+            <button data-ng-click="getUserEntries()" type="submit" class="btn btn-primary text-center center">Analyze it!</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="width: {{anger}}%" aria-valuenow="{{anger}}" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
-        <button data-ng-click="analyzeTone()" type="submit" class="btn btn-primary">Analyze it!</button>
-    </form>
-
-    <div>
-        <p>{{analysis.document_tone.tone_categories.0.tones.0}}</p>
-        <p>{{analysis.document_tone.tone_categories.0.tones.1}}</p>
-        <p>{{analysis.document_tone.tone_categories.0.tones.2}}</p>
-        <p>{{analysis.document_tone.tone_categories.0.tones.3}}</p>
-        <p>{{analysis.document_tone.tone_categories.0.tones.4}}</p>
     </div>
 
 </div>
