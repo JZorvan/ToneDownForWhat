@@ -3,30 +3,36 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
-    <link href="Content/Styles/bundle.scss" rel="stylesheet" />
+    <link href="Content/Styles/Content.min.css" rel="stylesheet" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
     
     <base href="/" />
 </head>
-<body>
+<body style="background-color: #BCAA99">
 
     <!-- New Nav Bar -->
 
-    <nav class="navbar navbar-default" id="nav_style"data-ng-controller="indexController" role="navigation" style="background-color">
+    <nav class="navbar navbar-default" id="nav_style"data-ng-controller="indexController" role="navigation" style="background-color: #443850; border-color: #443850; border-radius: 0;">
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" style="color: #F2F7F2" href="/">Home</a>
                     </li>
                     <li data-ng-hide="authentication.isAuth" class="nav-item">
-                        <a class="nav-link" href="/signin">Sign In</a>
+                        <a class="nav-link" style="color: #F2F7F2" href="/signin">Sign In</a>
                     </li>
                     <li data-ng-hide="authentication.isAuth" class="nav-item">
-                        <a class="nav-link" href="/register">Register</a>
+                        <a class="nav-link" style="color: #F2F7F2" href="/register">Register</a>
                     </li>
                     <li data-ng-show="authentication.isAuth" class="nav-item">
-                        <a class="nav-link" data-ng-click="logOut()" href="/">Sign Out</a>
+                        <a class="nav-link" style="color: #F2F7F2" href="/add">Add Entry</a>
+                    </li>
+                    <li data-ng-show="authentication.isAuth" class="nav-item">
+                        <a class="nav-link" style="color: #F2F7F2" href="/account">My Entries</a>
+                    </li>
+                    <li data-ng-show="authentication.isAuth" class="nav-item">
+                        <a class="nav-link" style="color: #F2F7F2" data-ng-click="logOut()" href="/">Sign Out</a>
                     </li>
                 </ul>
             </div>
@@ -50,5 +56,6 @@
     <script src="App/Controllers/IndexController.js"></script>
     <script src="App/Controllers/LoginController.js"></script>
     <script src="App/Controllers/RegisterController.js"></script>
+    <script src="App/Controllers/AccountController.js"></script>
 </body>
 </html>

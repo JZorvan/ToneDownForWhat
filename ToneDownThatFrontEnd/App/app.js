@@ -13,6 +13,12 @@ app.config(function ($routeProvider, $locationProvider) {
     }).when("/signin", {
         controller: "loginController",
         templateUrl: "/App/Partials/Signin.html"
+    }).when("/account", {
+        controller: "accountController",
+        templateUrl: "/App/Partials/Account.html"
+    }).when("/add", {
+        controller: "accountController",
+        templateUrl: "/App/Partials/Add.html"
     }).otherwise({ redirectTo: "/" });
 
     $locationProvider.html5Mode(true);
