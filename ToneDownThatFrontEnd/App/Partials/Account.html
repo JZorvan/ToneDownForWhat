@@ -1,0 +1,59 @@
+﻿<div data-ng-init="getUserEntries()">
+
+    <h1 class="text-center" style="color: #8E5572; margin: 1em">Your Entries:</h1>
+
+    <div data-ng-repeat="entry in Entries">
+        <div class="panel panel-default col-lg-5" style="background-color: #8E5572; color: #443850; border-color:#8E5572; margin: 0 0 2em 5em">
+            <div class="panel-heading" style="background-color: #BBBE64; border-color: #BBBE64">
+                <h3 class="panel-title text-center" style="color: #443850; font-weight:700; margin: .5em; font-size: 2em">{{entry.entryName}}</h3>
+            </div>
+            <div class="panel-body">
+                <h4 style="margin: .25em, 0, .5em, 1em">Author: <span style="color: #F2F7F2">{{entry.entryAuthor}}</span></h4>
+                <h4 style="margin: .25em, 0, .5em, 1em">Format: <span style="color: #F2F7F2">{{entry.format}}</span></h4>
+                <h4 style="margin: .25em, 0, .5em, 1em">Context: <span style="color: #F2F7F2">{{entry.context}}</span></h4>
+
+                <h4>Anger:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.anger}}%" aria-valuenow="{{entry.anger}}" aria-valuemin="0" aria-valuemax="100">{{entry.anger}}%</div>
+                </div>
+                <h4>Disgust:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.disgust}}%" aria-valuenow="{{entry.disgust}}" aria-valuemin="0" aria-valuemax="100">{{entry.disgust}}%</div>
+                </div>
+                <h4>Fear:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.fear}}%" aria-valuenow="{{entry.fear}}" aria-valuemin="0" aria-valuemax="100">{{entry.fear}}%</div>
+                </div>
+                <h4>Joy:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.joy}}%" aria-valuenow="{{entry.joy}}" aria-valuemin="0" aria-valuemax="100">{{entry.joy}}%</div>
+                </div>
+                <h4>Sadness:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.sadness}}%" aria-valuenow="{{entry.sadness}}" aria-valuemin="0" aria-valuemax="100">{{entry.sadness}}%</div>
+                </div>
+
+                <h4>Openness:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.openness}}%" aria-valuenow="{{entry.openness}}" aria-valuemin="0" aria-valuemax="100">{{entry.openness}}%</div>
+                </div>
+                <h4>Conscientiousness:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.conscientiousness}}%" aria-valuenow="{{entry.conscientiousness}}" aria-valuemin="0" aria-valuemax="100">{{entry.conscientiousness}}%</div>
+                </div>
+                <h4>Extraversion:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.extraversion}}%" aria-valuenow="{{entry.extraversion}}" aria-valuemin="0" aria-valuemax="100">{{entry.extraversion}}%</div>
+                </div>
+                <h4>Agreeableness:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.agreeableness}}%" aria-valuenow="{{entry.agreeableness}}" aria-valuemin="0" aria-valuemax="100">{{entry.agreeableness}}%</div>
+                </div>
+                <h4>Emotional Range:</h4>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="min-width: 2em; width: {{entry.emotionalrange}}%" aria-valuenow="{{entry.emotionalrange}}" aria-valuemin="0" aria-valuemax="100">{{entry.emotionalrange}}%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

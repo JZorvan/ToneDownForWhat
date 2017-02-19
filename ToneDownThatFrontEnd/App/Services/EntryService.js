@@ -17,10 +17,6 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
         }).then(function successCallback(response) {
             return response;
         });
-
-        //return $http.get(serviceBase + 'api/entry').then(function (results) {
-        //    return results;
-        //});
     };
 
     var _getSingleEntry = function (id) {
@@ -34,17 +30,12 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
         }).then(function successCallback(response) {
             return response;
         });
-
-        //return $http.get(serviceBase + 'api/entry/' + id).then(function (results) {
-        //    return results;
-        //});
     };
 
     var _addNewEntry = function (entry) {
 
         var data = entry;
 
-        // new
         return $http({
             method: 'POST',
             url: serviceBase + 'api/entry', data,
@@ -54,16 +45,10 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
         }).then(function successCallback(response) {
             return response;
         });
-
-        // old
-        //$http.post(serviceBase + 'api/entry', data).then(function (results) {
-        //    console.log(results);
-        //});
     };
 
     var _removeSingleEntry = function (id) {
 
-        //new
         return $http({
             method: 'DELETE',
             url: serviceBase + 'api/entry/' + id,
@@ -73,11 +58,6 @@ app.factory('entryService', ['$http', 'localStorageService', '$rootScope', funct
         }).then(function successCallback(response) {
             return response;
         });
-
-        // old
-        //return $http.delete(serviceBase + 'api/entry/' + id).then(function (results) {
-        //    return results;
-        //});
     };
 
     entryServiceFactory.getEntries = _getEntries;

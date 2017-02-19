@@ -13,6 +13,12 @@ app.config(function ($routeProvider, $locationProvider) {
     }).when("/signin", {
         controller: "loginController",
         templateUrl: "/App/Partials/Signin.html"
+    }).when("/account", {
+        controller: "accountController",
+        templateUrl: "/App/Partials/Account.html"
+    }).when("/add", {
+        controller: "accountController",
+        templateUrl: "/App/Partials/Add.html"
     }).otherwise({ redirectTo: "/" });
 
     $locationProvider.html5Mode(true);
@@ -29,7 +35,7 @@ app.run(['authService', function (authService) {
 app.controller('toneApiCtrl', function ($scope, $http, entryService) {
 
     $scope.userInput = "";
-
+    $scope.showBool = false;
     $scope.userEntries = {};
 
     $scope.getUserEntries = function () {
@@ -53,7 +59,7 @@ app.controller('toneApiCtrl', function ($scope, $http, entryService) {
         })
                    .then(function (response) {
                        $scope.analysis = response.data;
-                       $scope.anger = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[0].score) * 100);
+                       $scope.anger = (Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[0].score) * 100)).toString();
                        $scope.disgust = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[1].score) * 100);
                        $scope.fear = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[2].score) * 100);
                        $scope.joy = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[0].tones[3].score) * 100);
@@ -63,7 +69,7 @@ app.controller('toneApiCtrl', function ($scope, $http, entryService) {
                        $scope.extraversion = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[2].score) * 100);
                        $scope.agreeableness = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[3].score) * 100);
                        $scope.emotionalrange = Math.round(parseFloat($scope.analysis.document_tone.tone_categories[2].tones[4].score) * 100);
-                       console.log($scope.joy);
+                       $scope.showBool = true;
                    }
                    , function (error) {
                        console.log("Call failed!");
