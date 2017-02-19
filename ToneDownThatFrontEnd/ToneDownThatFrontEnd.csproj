@@ -112,6 +112,7 @@
   <ItemGroup>
     <Content Include="App\Controllers\AccountController.js" />
     <Content Include="App\Partials\Account.html" />
+    <Content Include="App\Partials\Add.html" />
     <Content Include="App\Partials\Register.html" />
     <Content Include="App\Partials\Signin.html" />
     <Content Include="Content\bootstrap-theme.css" />
